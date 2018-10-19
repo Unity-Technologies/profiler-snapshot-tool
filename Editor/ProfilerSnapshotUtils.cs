@@ -82,7 +82,7 @@ namespace Unity.WorldBuilding.Profiling
 
         public static void StopSnapshot()
         {
-            if (m_IsSnapshotting)
+            if (!m_IsSnapshotting)
                 return;
             
             m_IsSnapshotting = false;
