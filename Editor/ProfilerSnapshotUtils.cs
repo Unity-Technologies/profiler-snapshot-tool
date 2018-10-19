@@ -27,7 +27,7 @@ namespace Unity.WorldBuilding.Profiling
         {
             EnsureStyleGenerated();
 
-            if (m_IsSilentMode)
+            if (!m_IsSilentMode)
             {
                 Handles.BeginGUI();
                 GUI.contentColor = Color.white;
