@@ -1,7 +1,7 @@
 {
   "name": "com.unity.worldbuilding.profilersnapshot",
   "displayName": "Profiler Snapshot Tool",
-  "version": "1.0.0-preview",
+  "version": "1.0.1-preview",
   "unity": "2018.1",
   "description": "",
   "dependencies": {
