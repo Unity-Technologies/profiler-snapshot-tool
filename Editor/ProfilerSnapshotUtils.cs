@@ -72,10 +72,8 @@ namespace Unity.WorldBuilding.Profiling
             }
 
             ProfilerDriver.ClearAllFrames();
+            ProfilerDriver.enabled = true;
 
-            Profiler.logFile = string.Format("{0}/{1}", k_ProfilerFolder, fileName);
-            Profiler.enableBinaryLog = true;
-            Profiler.enabled = true;
             m_IsSilentMode = silent;
             m_IsSnapshotting = true;
         }
@@ -87,12 +85,12 @@ namespace Unity.WorldBuilding.Profiling
             
             m_IsSnapshotting = false;
 
-            Profiler.enableBinaryLog = false;
-            Profiler.enabled = false;
-            
+            ProfilerDriver.enabled = false;
+            string filePath = string.Format("{0}/{1}", k_ProjectFolder, "somefile.raw");
+            ProfilerDriver.SaveProfile(filePath);
+
             if (!m_IsSilentMode)
             {
-                string filePath = string.Format("{0}/{1}", k_ProjectFolder, Profiler.logFile);
                 Debug.LogFormat("Profiler Snapshot Stopped. Profiler raw file create at path <i>{0}</i>", filePath);
                 ProfilerDriver.LoadProfile(filePath, false);
                 OpenProfilerWindow();
